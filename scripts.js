@@ -1,5 +1,5 @@
 const questions = [
-  // Replace the below questions with your actual questions
+  // Add your questions here
   {
     question: "How many roots does a typical maxillary first molar have?",
     choices: ["1", "2", "3", "4"],
@@ -12,7 +12,7 @@ const questions = [
     correctAnswer: "Masseter",
     explanation: "The masseter is a powerful muscle that elevates the mandible to close the mouth."
   },
-  // Add more questions in the same format
+  // Add more questions here...
 ];
 
 // Function to shuffle questions
@@ -29,7 +29,7 @@ function displayQuiz() {
   const quizForm = document.getElementById('quizForm');
   quizForm.innerHTML = ''; // Clear previous content
 
-  questions.slice(0, 100).forEach((question, index) => {
+  questions.slice(0, 50).forEach((question, index) => {  // Change to 50
     const questionDiv = document.createElement('div');
     questionDiv.classList.add('question');
     
@@ -64,7 +64,7 @@ function gradeQuiz(event) {
   let explanations = "";
   const formData = new FormData(document.getElementById('quizForm'));
   
-  questions.slice(0, 100).forEach((question, index) => {
+  questions.slice(0, 50).forEach((question, index) => {  // Change to 50
     const userAnswer = formData.get(`q${index}`);
     if (userAnswer === question.correctAnswer) {
       score++;
@@ -73,7 +73,7 @@ function gradeQuiz(event) {
     }
   });
 
-  const totalQuestions = 100;  // Assuming we're displaying 100 questions
+  const totalQuestions = 50;  // Change total questions to 50
   const result = document.getElementById('result');
   result.innerHTML = `You scored ${score} out of ${totalQuestions}.<br>${explanations}`;
   result.style.display = 'block'; // Ensure the result is visible
