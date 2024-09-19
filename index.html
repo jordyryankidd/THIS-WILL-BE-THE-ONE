@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCQ Quiz</title>
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    /* Styling the quiz container */
+    #quizContainer {
+      background-color: white;
+      width: 80%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+    }
+
+    /* Progress bar styling */
+    #progressBarContainer {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 25px;
+      margin-bottom: 20px;
+      height: 10px;
+    }
+
+    #progressBar {
+      height: 10px;
+      background-color: #3498db;
+      border-radius: 25px;
+      width: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    /* Question and answer labels */
+    h2 {
+      font-size: 1.5em;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      background-color: #ecf0f1;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    input[type="radio"]:checked + label {
+      background-color: #d0e6f7;
+    }
+
+    /* Submit button styling */
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Styling for the result box */
+    #result {
+      background-color: #27ae60;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.2em;
+      display: none; /* Hidden initially until results are shown */
+    }
+
+    /* Retake button styling */
+    #retakeButton {
+      background-color: #e74c3c;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1em;
+      margin-top: 20px;
+      display: none; /* Hidden until the user finishes the quiz */
+      text-align: center;
+      width: 100%;
+    }
+
+    #retakeButton:hover {
+      background-color: #c0392b;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      #quizContainer {
+        width: 90%;
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 1.2em;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="quizContainer">
+    <div id="progressBarContainer">
+      <div id="progressBar"></div>
+    </div>
+    <form id="quizForm" onsubmit="return false;"></form>
+    <p id="result" style="display:none;"></p>
+    <button id="retakeButton" style="display:none;">Retake Test</button>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
